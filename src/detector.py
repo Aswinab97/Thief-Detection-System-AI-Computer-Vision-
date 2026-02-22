@@ -1,5 +1,6 @@
 import cv2
 import time
+import numpy as np
 from datetime import datetime
 from src.motion import MotionDetector
 from src.alarm import Alarm
@@ -97,22 +98,27 @@ class ThiefDetector:
 
         print(f"✅ Using camera index {cam_index}. Press 'q' or ESC to quit.")
 
-        # Final warm-up
-        print("⏳ Final camera warm-up...")
-        for _ in range(20):
+        # Extended warm-up — allows auto-exposure to settle
+        print("⏳ Final camera warm-up (allowing auto-exposure to settle)...")
+        for _ in range(60):           # ⬆️ Increased from 20 → 60
             self.cap.read()
-        time.sleep(0.5)
+        time.sleep(2)                 # ⬆️ Increased from 0.5 → 2 seconds
 
-        # Grab background frame
-        ret, first_frame = self.cap.read()
-        if not ret or first_frame is None:
-            print("❌ Failed to grab first frame")
-            self.cap.release()
-            return
+        # Grab stable background — average of 10 frames
+        print("📸 Capturing stable background...")
+        frames = []
+        for _ in range(10):
+            ret, frame = self.cap.read()
+            if ret and frame is not None:
+                frames.append(frame.astype(np.float32))
+            time.sleep(0.1)
+
+        # Average 10 frames for a stable background
+        first_frame = np.mean(frames, axis=0).astype(np.uint8)
 
         self.motion_detector.set_background(first_frame)
         self._init_writer(first_frame)
-        print("📸 Background captured. Monitoring started...\n")
+        print("✅ Background captured. Monitoring started...\n")
 
         while True:
             ret, frame = self.cap.read()
