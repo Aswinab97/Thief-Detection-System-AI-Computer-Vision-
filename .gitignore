@@ -1,0 +1,21 @@
+# Virtual Environment
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Output recordings
+output/recordings/*.mp4
+output/recordings/*.avi
+
+# Mac system files
+.DS_Store
+
+# VS Code
+.vscode/
+
+# Jupyter
+.ipynb_checkpoints/
