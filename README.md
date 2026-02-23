@@ -32,7 +32,7 @@ A real-time **AI-powered security system** that uses computer vision to detect m
 
 > Click to download and watch the demo recording:
 
-[▶️ Watch Demo Video](demo/demo.mp4)
+[▶️ Watch Demo Video](demo/recording.mp4)
 
 ---
 
