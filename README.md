@@ -11,10 +11,28 @@ A real-time **AI-powered security system** that uses computer vision to detect m
 
 ## 🎥 Demo
 
+## 🎥 Demo
+
 | Status | Preview |
 |--------|---------|
 | 🟢 **SAFE** — No motion detected | Green label on live feed |
 | 🔴 **UNSAFE** — Intruder detected | Red label + bounding box + alert |
+
+### 📸 Screenshots
+
+**🟢 SAFE — No motion detected:**
+
+![Safe](images/safe.jpg)
+
+**🔴 UNSAFE — Intruder detected:**
+
+![Unsafe](images/unsafe.jpg)
+
+### 🎬 Demo Video
+
+> Click to download and watch the demo recording:
+
+[▶️ Watch Demo Video](demo/demo.mp4)
 
 ---
 
