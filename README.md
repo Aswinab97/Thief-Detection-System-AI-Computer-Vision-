@@ -11,8 +11,6 @@ A real-time **AI-powered security system** that uses computer vision to detect m
 
 ## 🎥 Demo
 
-## 🎥 Demo
-
 | Status | Preview |
 |--------|---------|
 | 🟢 **SAFE** — No motion detected | Green label on live feed |
